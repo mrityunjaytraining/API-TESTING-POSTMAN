@@ -1,0 +1,6 @@
+name,gender,email,status,userID,updatedName,updatedEmail,updatedStatus,userIDtoDelete
+Dhiya,female,dhivya1a@ddt.com,active,7585264,DHIVYA,dhivya1a@ddt.in.org,inactive,7585255
+Suchitra,female,sucvya1a@ddt.com,inactive,7585262,SUCVYA,sucvya1a@ddt.org,active,7585254
+Santosh,male,sanvya1a@ddt.com,active,7585261,SANVYA,sanvya1a@ddt.org,inactive,7585253
+Amikar,male,amivya1a@ddt.com,inactive,7585260,AMIVYA,amivya1a@ddt.org,active,7585252
+Minu,female,minvya1a@ddt.com,active,7585259,MINVYA,minvya1a@ddt.org,inactive,7585251
