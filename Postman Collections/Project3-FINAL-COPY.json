@@ -1,0 +1,2479 @@
+{
+	"info": {
+		"_postman_id": "55c327ee-140a-49d6-8db9-dfd3b32d7765",
+		"name": "Project-1-goRestServer-REST-API's Final Copy",
+		"description": "- Type of API's : REST APIs\n    \n- API Documentation format : cURL\n    \n- Classification of APIs : Public APIs + Secured APIs\n    \n- Algorithm used for API Security : Bearer Access Token\n    \n- To Get your Access Token, login to the [https://gorest.co.in/](https://gorest.co.in/) with github/google/microsoft account\n    \n- #of APIs developed : 4\n    \n- HTTP METHODS used : GET,POST,PATCH,DELETE\n    \n- API Documentation page/url : [https://gorest.co.in/](https://gorest.co.in/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NEGATIVE TC",
+			"item": [
+				{
+					"name": "BROKEN ENDPOINT TESTING",
+					"item": [
+						{
+							"name": "public to private endpoint",
+							"item": [
+								{
+									"name": "Fetching List of Users into gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+												"exec": [
+													"pm.test(\"Verify if the response code is 4xx client error or 5xx server error\", function () {\r",
+													"    pm.response.to.be.error;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "331d99d6-47cb-4f48-9af3-21046dafc8cf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}",
+												"type": "text"
+											}
+										],
+										"url": "https://gorest.co.in/private/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Create List of Users into  gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+												"exec": [
+													"pm.test(\"Verify if the response code is 4xx client error or 5xx server error\", function () {\r",
+													"    pm.response.to.be.error;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "0346285a-35ad-4559-945b-f9c3ac7a2584",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/private/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Update User Details into gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7e62e2c9-b836-4b5a-8d6b-56fb575778e3",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client error or 5xx server error\", function () {\r",
+													"    pm.response.to.be.error;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "76c71ab3-1e2a-41de-8666-ab50c24cf188",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/private/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as PATCH and it updates existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User From existing gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3c1e818e-0209-4d54-9f0c-6b9d8d3a8ec6",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side error or 5xx server error\", function () {\r",
+													"    pm.response.to.be.error;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "e799dc88-edd6-4ec4-b938-717e65ebf0f7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"url": "https://gorest.co.in/private/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as DELETE and it deletes existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 204 No Content_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received or Not from server_"
+									},
+									"response": []
+								}
+							],
+							"id": "b701be46-4f5c-4550-8a29-decac9ae7059"
+						},
+						{
+							"name": "v2 to v1 endpoint-Bugs Found",
+							"item": [
+								{
+									"name": "Fetching List of Users into gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side error or 5xx server error \", function () {\r",
+													"    pm.response.to.be.error\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "427e63c9-fb94-48d3-88dc-28ef42b6914b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}",
+												"type": "text"
+											}
+										],
+										"url": "https://gorest.co.in/public/v1/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Create List of Users into  gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side error or 5xx server error \", function () {\r",
+													"    pm.response.to.be.error\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c55f01bf-ea6a-4431-914e-3a731474d55e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v1/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Update User Details into gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7e62e2c9-b836-4b5a-8d6b-56fb575778e3",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side error or 5xx server error \", function () {\r",
+													"    pm.response.to.be.error\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "31290a8c-d509-472e-b728-a59096cab258",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v1/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as PATCH and it updates existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User From existing gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3c1e818e-0209-4d54-9f0c-6b9d8d3a8ec6",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side error or 5xx server error \", function () {\r",
+													"    pm.response.to.be.error\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "e659465e-ba85-4864-a27e-49935b95bb82",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"url": "https://gorest.co.in/public/v1/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as DELETE and it deletes existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 204 No Content_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received or Not from server_"
+									},
+									"response": []
+								}
+							],
+							"id": "0f91b044-1e85-4ce9-90a7-d5ee69f0cc0f"
+						}
+					],
+					"id": "68f9f023-d94f-4b31-b5d5-135a6de48e6d"
+				},
+				{
+					"name": "UNSUPPORTED HTTP METHODS TESTING",
+					"item": [
+						{
+							"name": "POST",
+							"item": [
+								{
+									"name": "Create List of Users into  gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "32f56553-3ede-448c-b92c-23e73ef6d0e0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer 5dffef94100e56fb7437b0f2037e291e679f59c653638a8e6ba9b0297b3cde58"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Create List of Users into  gorest Server Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side\", function () {\r",
+													"    pm.response.to.be.clientError\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c078bdb5-ff55-4341-be01-d952da9fffa3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Create List of Users into  gorest Server Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+												"exec": [
+													"pm.test(\"Verify IF response code is 4xx client side error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "4632367f-46f6-459a-87d6-9f4a67e05efc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Create List of Users into  gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "d76478a9-d5a0-4f7d-aeaa-cddae97d4b80",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Create List of Users into  gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+												"exec": [
+													"pm.test(\"Verify if the response code is 4xx client side error\",function(){\r",
+													"pm.response.to.be.clientError;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "ef46cb0a-521c-4f65-b537-4cf3ca5314fa",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								}
+							],
+							"id": "958a9137-60ee-4b47-be3a-a99b5b75e3da"
+						},
+						{
+							"name": "PATCH",
+							"item": [
+								{
+									"name": "Update User Details into gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7e62e2c9-b836-4b5a-8d6b-56fb575778e3",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "db4f0d7c-4122-4388-8f2c-23682d2e0004",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as PATCH and it updates existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Update User Details into gorest Server Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7e62e2c9-b836-4b5a-8d6b-56fb575778e3",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "4042a576-1726-4e22-94d9-4d8571b6c90f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as PATCH and it updates existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Update User Details into gorest Server Copy 2",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7e62e2c9-b836-4b5a-8d6b-56fb575778e3",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "219ba12f-25c6-4ad3-9dbd-2edf4b4a47f9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as PATCH and it updates existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Update User Details into gorest Server Copy 3",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7e62e2c9-b836-4b5a-8d6b-56fb575778e3",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "1bf92a1e-27eb-4179-8767-9502102dced8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as PATCH and it updates existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Update User Details into gorest Server Copy 4",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7e62e2c9-b836-4b5a-8d6b-56fb575778e3",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "e8cb72e5-dcc7-441b-a442-157270768d38",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as PATCH and it updates existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								}
+							],
+							"id": "9cc1c36d-447f-4dbe-86d6-7a553903416b"
+						},
+						{
+							"name": "DELETE",
+							"item": [
+								{
+									"name": "Delete User From existing gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3c1e818e-0209-4d54-9f0c-6b9d8d3a8ec6",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "7045643a-3e65-4df5-8a87-51739faeb721",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as DELETE and it deletes existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 204 No Content_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received or Not from server_"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User From existing gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3c1e818e-0209-4d54-9f0c-6b9d8d3a8ec6",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "59100232-29c4-4077-a4cd-c45b677db908",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as DELETE and it deletes existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 204 No Content_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received or Not from server_"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User From existing gorest Server Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3c1e818e-0209-4d54-9f0c-6b9d8d3a8ec6",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "90c9630f-ce13-44c6-b5dd-9a332535cde7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as DELETE and it deletes existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 204 No Content_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received or Not from server_"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User From existing gorest Server Copy 2",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3c1e818e-0209-4d54-9f0c-6b9d8d3a8ec6",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2f7c4f83-4e1d-44e3-8a4a-8eb28c0fac21",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as DELETE and it deletes existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 204 No Content_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received or Not from server_"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User From existing gorest Server Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3c1e818e-0209-4d54-9f0c-6b9d8d3a8ec6",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError;\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3154be2f-a321-4279-ae82-34a98731f029",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+										"description": "_This is a_ _**REST API**_ _that uses http method as DELETE and it deletes existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 204 No Content_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received or Not from server_"
+									},
+									"response": []
+								}
+							],
+							"id": "c5e9fa6e-4116-4c88-85e9-21476683a47e"
+						},
+						{
+							"name": "GET",
+							"item": [
+								{
+									"name": "Fetching List of Users into gorest Server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "0e148dc5-3b89-4573-a2f2-7eae51910e15",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Fetching List of Users into gorest Server Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "632c9f8d-594e-4428-ba47-610c8ed94709",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}",
+												"type": "text"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Fetching List of Users into gorest Server Copy 2",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "02c260c0-c7c5-4ae4-81b5-bc54ca6ffc51",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}",
+												"type": "text"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Fetching List of Users into gorest Server Copy 3",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "f95c0479-0eb5-4195-abb9-3c6775f6fbed",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}",
+												"type": "text"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								},
+								{
+									"name": "Fetching List of Users into gorest Server Copy 4",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+												"exec": [
+													"pm.test(\"Verify if response code is 4xx client side Error\", function () {\r",
+													"    pm.response.to.be.clientError\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "18d51870-b72f-4f73-a5c2-dce5225c4ae4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{cAccessToken-1}}",
+												"type": "text"
+											}
+										],
+										"url": "https://gorest.co.in/public/v2/users",
+										"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+									},
+									"response": []
+								}
+							],
+							"id": "ce6dda82-b238-4583-ae88-49740b1d0e4d"
+						}
+					],
+					"id": "3c6391bd-f468-415e-91ae-b9a0306d4b00"
+				},
+				{
+					"name": "PAYLOAD TEMPERING",
+					"item": [
+						{
+							"name": "Create User API-INVALID DATA TYPE",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+										"exec": [
+											"pm.test(\"Verify if response code is 4xx client side Error or 5xx server Error\", function () {\r",
+											"    pm.response.to.be.error;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "f3d788c7-15d4-4a92-8906-d46c2384a562",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{cAccessToken-1}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"###$4$$((((((()\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://gorest.co.in/public/v2/users",
+								"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+							},
+							"response": []
+						},
+						{
+							"name": "Create User API-EMPTY PAYLOAD VALUES",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+										"exec": [
+											"pm.test(\"Verify if response code is 4xx client side Error or 5xx server Error\", function () {\r",
+											"    pm.response.to.be.error;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "af312549-508e-4ed1-a22a-eddcc3035ef1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{cAccessToken-1}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"\",\r\n    \"gender\": \"\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://gorest.co.in/public/v2/users",
+								"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+							},
+							"response": []
+						},
+						{
+							"name": "Create User API-EMPTY PAYLOAD VALUES",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+										"exec": [
+											"pm.test(\"Verify if response code is 4xx client side Error or 5xx server Error\", function () {\r",
+											"    pm.response.to.be.error;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "b5578bc0-9fe3-42e8-9e7e-fead3affe63d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{cAccessToken-1}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"\",\r\n    \"gender\": \"\",\r\n    \"email\": \"\",\r\n    \"status\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://gorest.co.in/public/v2/users",
+								"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+							},
+							"response": []
+						},
+						{
+							"name": "Create User API-ADDITIONAL PAYLOAD FIELD",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+										"exec": [
+											"pm.test(\"Verify if response code is 4xx client side Error or 5xx server Error\", function () {\r",
+											"    pm.response.to.be.error;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4c488bee-68cd-456f-8cce-c695970e64fe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{cAccessToken-1}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"GITIKA CHETRI\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\",\r\n    \"mobile\": \"839399393\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://gorest.co.in/public/v2/users",
+								"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+							},
+							"response": []
+						},
+						{
+							"name": "Create User API-MISSING PAYLOAD FIELDS",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+										"exec": [
+											"pm.test(\"Verify if response code is 4xx client side Error or 5xx server Error\", function () {\r",
+											"    pm.response.to.be.error;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "f4dc7e6d-f079-4569-b317-5135434b33a5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{cAccessToken-1}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  //  \"name\": \"SONY\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://gorest.co.in/public/v2/users",
+								"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+							},
+							"response": []
+						},
+						{
+							"name": "Create User API-MISSING PAYLOAD FIELDS",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+										"exec": [
+											"pm.test(\"Verify if response code is 4xx client side Error or 5xx server Error\", function () {\r",
+											"    pm.response.to.be.error;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "129e9a20-fd6f-42e9-a5dc-181c2a2eaa33",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{cAccessToken-1}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"SONY\",\r\n  //  \"gender\": \"male\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://gorest.co.in/public/v2/users",
+								"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+							},
+							"response": []
+						},
+						{
+							"name": "Create User API-MISSING PAYLOAD FIELDS",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+										"exec": [
+											"pm.test(\"Verify if response code is 4xx client side Error or 5xx server Error\", function () {\r",
+											"    pm.response.to.be.error;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6cdd5b1b-5c1c-4fdc-b058-4a9ecdaa6def",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{cAccessToken-1}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"SONY\",\r\n    \"gender\": \"{{gender}}\",\r\n  //  \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://gorest.co.in/public/v2/users",
+								"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+							},
+							"response": []
+						},
+						{
+							"name": "Create User API-MISSING PAYLOAD FIELDS",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+										"exec": [
+											"pm.test(\"Verify if response code is 4xx client side Error or 5xx server Error\", function () {\r",
+											"    pm.response.to.be.error;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "fa63293c-13ae-49d0-81d1-28c67a1aa2f6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{cAccessToken-1}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"SONY\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\"\r\n  //  \"status\": \"active\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://gorest.co.in/public/v2/users",
+								"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+							},
+							"response": []
+						},
+						{
+							"name": "Create User API-INVALID DATA LENGTH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+										"exec": [
+											"pm.test(\"Verify if response code is 4xx client side Error or 5xx server Error\", function () {\r",
+											"    pm.response.to.be.error;\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "b1851dcd-f7d8-4ed1-a306-51b6f96369c8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{cAccessToken-1}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"GITIKA SONY SANJANA SHREYA SHIVANI AYUSHI NEHA GITIKA SONY SANJANA SHREYA SHIVANI AYUSHI NEHA GITIKA SONY SANJANA SHREYA SHIVANI AYUSHI NEHA GITIKA SONY SANJANA SHREYA SHIVANI AYUSHI NEHA GITIKA SONY SANJANA SHREYA SHIVANI AYUSHI NEHA GITIKA SONY SANJANA SHREYA SHIVANI AYUSHI NEHA\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://gorest.co.in/public/v2/users",
+								"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+							},
+							"response": []
+						}
+					],
+					"id": "b2e1af0c-4238-4667-9ae5-9b7204e22f55"
+				}
+			],
+			"id": "86cc5a9c-51cf-4d03-8915-f029117837fc"
+		},
+		{
+			"name": "E2E API AUTOMATION",
+			"item": [
+				{
+					"name": "Create User into  gorest Server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a68ca50-5b95-47cf-bdc7-87ae4c693bcc",
+								"exec": [
+									"pm.test(\"Verify if response code with response message received from Server is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Response time received from server < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received from server\", function () {\r",
+									"    pm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response Content-Type is received from server in JSON format\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received from server has fields such as id,name,gender,status,email\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"gender\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"email\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"status\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response gender is received from server either male or female\", function () {\r",
+									"    pm.expect(pm.response.json().gender).to.be.oneOf([\"male\", \"female\"]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response status is received from server either active or inactive\", function () {\r",
+									"    pm.expect(pm.response.json().status).to.be.oneOf([\"active\", \"inactive\"]);\r",
+									"});\r",
+									"console.log(\"----------------------------------------------\")\r",
+									"//CAPTURING THE RESPONSE ATTRIBUTES\r",
+									"console.log(\"API Response Message are below :\")\r",
+									"console.log(\"The Response Body Size is ::\");\r",
+									"console.log(pm.response.size());\r",
+									"console.log(\"The Response time is \"+pm.response.responseTime)\r",
+									"console.log(\"The Response Code is \"+pm.response.code);\r",
+									"console.log(\"The Response Status is \"+pm.response.status)\r",
+									"console.log(\"The Response headers are below :\"+pm.response.headers);\r",
+									"console.log(\"The Request URL is \"+pm.request.url);\r",
+									"console.log(\"The Request Body is \"+pm.request.body)\r",
+									"console.log(\"The Request Method is \"+pm.request.method);\r",
+									"console.log(\"The name of the request is \"+pm.info.requestName)\r",
+									"\r",
+									"console.log(\"----------------------------------------------\")\r",
+									"\r",
+									"console.log(\"The response body is received from server :\")\r",
+									"console.log(pm.response.json())\r",
+									"console.log(pm.response.text())\r",
+									"\r",
+									"console.log(\"----------------------------------------------\")\r",
+									"\r",
+									"//API CHAINING----->Extracting variable values\r",
+									"var jsonBody=pm.response.json();\r",
+									"var extractedId=jsonBody.id;\r",
+									"var extractedName=jsonBody.name;\r",
+									"var extractedEmail=jsonBody.email;\r",
+									"\r",
+									"pm.collectionVariables.set(\"collectionID\", extractedId);\r",
+									"pm.collectionVariables.set(\"collectionName\", extractedName);\r",
+									"pm.collectionVariables.set(\"collectionEmail\", extractedEmail);\r",
+									"\r",
+									"//CONDITIONAL STATEMENTS & POSTMAN WORKFLOWS\r",
+									"if(pm.response.code==201){\r",
+									"console.log(pm.info.requestName+\" API has passed\")\r",
+									"pm.execution.setNextRequest(\"Verify If User is created Into gorest Server\"); //execute the next API\r",
+									"}else{\r",
+									"console.log(pm.info.requestName+ \"API has failed\");\r",
+									"pm.execution.setNextRequest(\"\");//Stop the Test execution\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ed81796b-40ef-4789-89d7-5f12fc2bf66d",
+								"exec": [
+									"pm.globals.unset(\"globalID\");\r",
+									"pm.globals.unset(\"globalName\");\r",
+									"pm.globals.unset(\"globalEmail\");\r",
+									"\r",
+									"pm.collectionVariables.unset(\"collectionID\");\r",
+									"pm.collectionVariables.unset(\"collectionName\");\r",
+									"pm.collectionVariables.unset(\"collectionEmail\");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "e01517a9-6f4f-4128-b0dd-0d3593f76c69",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{cAccessToken-1}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://gorest.co.in/public/v2/users",
+						"description": "_This is a_ _**REST API**_ _that uses http method as POST and it creates new request into existing specified database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 201 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+					},
+					"response": []
+				},
+				{
+					"name": "Verify If User is created Into gorest Server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+								"exec": [
+									"pm.test(\"Verify if response code received from server is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time received from server < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received from server\", function () {\r",
+									"\tpm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received from server in JSON format\", function () {\r",
+									"\tpm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\");\r",
+									"});\r",
+									"pm.test(\"Verify if response body is received from server has fields such as id,name,email,gender,status\", function () {\r",
+									"\tpm.expect(pm.response.text()).to.include(\"id\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"name\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"email\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"gender\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"status\");\r",
+									"});\r",
+									"//Capturing the reponse attributes\r",
+									"console.log(\"hello\")\r",
+									"console.log(\"The Response Code is received from server \"+pm.response.code)\r",
+									"console.log(\"The response message is received from server \"+pm.response.status);\r",
+									"console.log(\"The response body is received from server :\")\r",
+									"console.log(pm.response.json())\r",
+									"console.log(pm.response.text())\r",
+									"console.log(\"The response headers is received from server are \"+pm.response.headers)\r",
+									"\r",
+									"\r",
+									"//JSON VALUE CHECK-->EXTRACTING THE DATA FROM RESPONSE BODY\r",
+									"pm.test(\"Verify if User is Created with id = \"+pm.collectionVariables.get(\"collectionID\"), function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].id).to.eql(pm.collectionVariables.get(\"collectionID\"));\r",
+									"});\r",
+									"\r",
+									"//CONDITIONAL STATEMENT & EXECUTION FLOW\r",
+									"if(pm.response.code==200){\r",
+									"    console.log(pm.info.requestName+ \"API has passed\")\r",
+									"    pm.execution.setNextRequest(\"Update this Created User Into gorest server\");\r",
+									"}else{\r",
+									"    console.log(pm.info.requestName+ \"API has failed\")\r",
+									"    pm.execution.setNextRequest(\"\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "56eefc6c-4876-4c0b-8add-ded744c515b5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{cAccessToken-1}}",
+								"type": "text"
+							}
+						],
+						"url": "https://gorest.co.in/public/v2/users",
+						"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+					},
+					"response": []
+				},
+				{
+					"name": "Update this Created User Into gorest server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e62e2c9-b836-4b5a-8d6b-56fb575778e3",
+								"exec": [
+									"pm.test(\"Verify if response code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time is received from server <2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received from server\", function () {\r",
+									"    pm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body Content-Type is application/json; charset=utf-8\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received has fields such as id,name,gender,status\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"gender\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"status\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if gender is male or female\", function () {\r",
+									"    pm.expect(pm.response.json().gender).to.be.oneOf([\"male\", \"female\"]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.json().status).to.be.oneOf([\"active\", \"inactive\"]);\r",
+									"});\r",
+									"\r",
+									"pm.test.skip(\"Verify if name=Prasant Singh Jharia and email=pras5@gmail.com\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"Prasant Singh Jharia\");\r",
+									"    pm.expect(jsonData.email).to.eql(\"pras5@gmail.com\");\r",
+									"});\r",
+									"\r",
+									"//CAPTURING THE RESPONSE ATTRIBUTES\r",
+									"console.log(\"The HTTP Method is used in this request \"+pm.request.method)\r",
+									"console.log(\"The API URI is used in this request \"+pm.request.url)\r",
+									"console.log(\"The Request header is used in this request \"+pm.request.headers)\r",
+									"console.log(\"The Payload is used in this request :\")\r",
+									"console.log(pm.request.body)\r",
+									"console.log(\"The size of the request is \")\r",
+									"console.log(pm.request.size())\r",
+									"console.log(\"The name of the request is \"+pm.info.requestName)\r",
+									"\r",
+									"//API CHAINING CODE\r",
+									"var jsonBody=pm.response.json();\r",
+									"var extractedUpdatedName=jsonBody.name;\r",
+									"\r",
+									"pm.collectionVariables.set(\"collectionUpdatedName\", extractedUpdatedName);\r",
+									"//CONDITIONAL STATEMENT & EXECUTION FLOW\r",
+									"if(pm.response.code==200){\r",
+									"console.log(pm.info.requestName+ \"API has passed\");\r",
+									"pm.execution.setNextRequest(\"Verify If Created User is Updated Into gorest Server\");\r",
+									"}else{\r",
+									"console.log(pm.info.requestName+ \"API has failed\");\r",
+									"pm.execution.setNextRequest(\"\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "5b4225b1-1c57-487c-bc28-17d783003877",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{cAccessToken-1}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"email\": \"{{collectionEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+						"description": "_This is a_ _**REST API**_ _that uses http method as PATCH and it updates existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 Created_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+					},
+					"response": []
+				},
+				{
+					"name": "Verify If Created User is Updated Into gorest Server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+								"exec": [
+									"pm.test(\"Verify if response code received from server is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time received from server < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received from server\", function () {\r",
+									"\tpm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received from server in JSON format\", function () {\r",
+									"\tpm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\");\r",
+									"});\r",
+									"pm.test(\"Verify if response body is received from server has fields such as id,name,email,gender,status\", function () {\r",
+									"\tpm.expect(pm.response.text()).to.include(\"id\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"name\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"email\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"gender\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"status\");\r",
+									"});\r",
+									"//Capturing the reponse attributes\r",
+									"console.log(\"hello\")\r",
+									"console.log(\"The Response Code is received from server \"+pm.response.code)\r",
+									"console.log(\"The response message is received from server \"+pm.response.status);\r",
+									"console.log(\"The response body is received from server :\")\r",
+									"console.log(pm.response.json())\r",
+									"console.log(pm.response.text())\r",
+									"console.log(\"The response headers is received from server are \"+pm.response.headers)\r",
+									"\r",
+									"\r",
+									"//JSON VALUE CHECK\r",
+									"pm.test(\"Verify if created user is updated with name = \"+pm.collectionVariables.get(\"collectionUpdatedName\"), function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].name).to.eql(pm.collectionVariables.get(\"collectionUpdatedName\"));\r",
+									"});\r",
+									"\r",
+									"//CONDITIONAL STATEMENT & EXECUTION FLOW\r",
+									"if(pm.response.code==200){\r",
+									"console.log(pm.info.requestName+ \"API has passed\");\r",
+									"pm.execution.setNextRequest(\"Delete this Created User From existing gorest Server\");\r",
+									"}else{\r",
+									"console.log(pm.info.requestName+ \"API has failed\");\r",
+									"pm.execution.setNextRequest(\"\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "b301a169-0398-45d5-a403-572b9f8f5cb8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{cAccessToken-1}}",
+								"type": "text"
+							}
+						],
+						"url": "https://gorest.co.in/public/v2/users",
+						"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete this Created User From existing gorest Server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3c1e818e-0209-4d54-9f0c-6b9d8d3a8ec6",
+								"exec": [
+									"pm.test(\"Verify if response code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"    pm.response.to.have.status(\"No Content\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if Response time is received from server < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is No Content\", function () {\r",
+									"    pm.response.to.not.have.body();\r",
+									"});\r",
+									"//CONDITIONAL STATEMENT & EXECUTION FLOW\r",
+									"if(pm.response.code==204){\r",
+									"console.log(pm.info.requestName+ \"API has passed\");\r",
+									"pm.execution.setNextRequest(\"Verify If Created User is deleted Into gorest Server\");\r",
+									"}else{\r",
+									"console.log(pm.info.requestName+ \"API has failed\")\r",
+									"pm.execution.setNextRequest(\"\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "49ff863c-9ae5-4fbd-9297-fd885328c453",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"user-agent": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{cAccessToken-1}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							}
+						],
+						"url": "https://gorest.co.in/public/v2/users/{{collectionID}}",
+						"description": "_This is a_ _**REST API**_ _that uses http method as DELETE and it deletes existing data which is already created into database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 204 No Content_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received or Not from server_"
+					},
+					"response": []
+				},
+				{
+					"name": "Verify If Created User is deleted Into gorest Server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "94040cfd-d016-443d-8bf1-40bf2948c535",
+								"exec": [
+									"pm.test(\"Verify if response code received from server is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response time received from server < 2 seconds\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received from server\", function () {\r",
+									"\tpm.response.to.have.body();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify if response body is received from server in JSON format\", function () {\r",
+									"\tpm.response.to.have.header(\"Content-Type\",\"application/json; charset=utf-8\");\r",
+									"});\r",
+									"pm.test(\"Verify if response body is received from server has fields such as id,name,email,gender,status\", function () {\r",
+									"\tpm.expect(pm.response.text()).to.include(\"id\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"name\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"email\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"gender\");\r",
+									"\tpm.expect(pm.response.text()).to.include(\"status\");\r",
+									"});\r",
+									"//Capturing the reponse attributes\r",
+									"console.log(\"hello\")\r",
+									"console.log(\"The Response Code is received from server \"+pm.response.code)\r",
+									"console.log(\"The response message is received from server \"+pm.response.status);\r",
+									"console.log(\"The response body is received from server :\")\r",
+									"console.log(pm.response.json())\r",
+									"console.log(pm.response.text())\r",
+									"console.log(\"The response headers is received from server are \"+pm.response.headers)\r",
+									"\r",
+									"//JSON VALUE CHECK\r",
+									"pm.test(\"Verify IF updated Created user is deleted with id = \"+pm.collectionVariables.get(\"collectionID\"), function () {\r",
+									"   pm.expect(pm.response.text()).to.not.include(pm.collectionVariables.get(\"collectionID\"));\r",
+									"});\r",
+									"\r",
+									"//CONDITIONAL STATEMENT & EXECUTION FLOW\r",
+									"if(pm.response.code==200){\r",
+									"console.log(pm.info.requestName+ \"API has passed\");\r",
+									"pm.execution.setNextRequest(\"\");//STOP NEXT EXECUTION\r",
+									"}else{\r",
+									"console.log(pm.info.requestName+ \"API has failed\")\r",
+									"pm.execution.setNextRequest(\"\");//STOP NEXT EXECUTION\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "1275c1c6-2d81-49f8-b3da-04c1534229ed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "User-Agent",
+								"value": "{{$randomUserAgent}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{cAccessToken-1}}",
+								"type": "text"
+							}
+						],
+						"url": "https://gorest.co.in/public/v2/users",
+						"description": "_This is a_ _**REST API**_ _that uses http method as_ _**GET**_ _and it retrieves/read/fetches the existing user details from the database/server._\n\n_Exp Result:_\n\n_(i)Verify if the response code received from server is 200 OK_\n\n_(ii)Verify if server response time < 5 seconds_\n\n_(iii)Verify if response body is received from server_\n\n_(iv)Verify if response body is received in JSON format_\n\n_(v)Verify if response body has fields such as id,name,gender,emails,status_"
+					},
+					"response": []
+				}
+			],
+			"id": "9efaf423-a0c9-47ba-a96c-cceb7c819248",
+			"description": "The response of an API becomes request for another dependent API."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f7272480-6118-4a3b-8c1d-a972eb0a388c",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c6651616-021e-474b-8d92-7d986725b0a0",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "cAccessToken-1",
+			"value": "5dffef94100e56fb7437b0f2037e291e679f59c653638a8e6ba9b0297b3cde58"
+		},
+		{
+			"key": "collectionID",
+			"value": ""
+		},
+		{
+			"key": "collectionName",
+			"value": ""
+		},
+		{
+			"key": "collectionEmail",
+			"value": ""
+		},
+		{
+			"key": "collectionUpdatedName",
+			"value": ""
+		}
+	]
+}
